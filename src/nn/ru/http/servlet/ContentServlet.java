@@ -22,7 +22,8 @@ public class ContentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<FlightDto> flightDtos = flightService.findAll();
-//        req.setAttribute("flights", flightDtos);
+        req.setAttribute("flights", flightDtos);
+        req.getSession().setAttribute("flights", flightDtos);
         req.getSession().setAttribute("flightsMap", flightDtos.stream()
                 .collect(toMap(FlightDto::getId, FlightDto::getDescription)));
 

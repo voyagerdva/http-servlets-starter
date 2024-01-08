@@ -7,7 +7,9 @@
     <%@ include file="header.jsp"%>
     <div>
         <span>Content. Русский</span>
-        <p>Size: ${requestScope.get("flights").size}</p>
+<%--        <p>Size: ${requestScope.get("flights").size}</p>--%>
+        <p>Size: ${requestScope.flights.size}</p>
+<%--        <p>Size: ${requestScope.forEach(f -> f.size())}</p>--%>
         <p>Id: ${requestScope.flights.get(0).id}</p>
         <p>Id 2: ${requestScope.flights[1].id}</p>
         <p>Id 2: ${requestScope.get("flights")[1].id}</p>
