@@ -24,20 +24,7 @@ public class FlightServlet extends HttpServlet {
                 .forward(req, resp);
 
 
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
 
-        var printWriter = resp.getWriter();
-        printWriter.write("<h1>Список перелетов:</h1>");
-        printWriter.write("<ul>");
-        flightService.findAll().forEach(flightDto -> {
-            printWriter.write("""
-                    <li>
-                        <a href='/tickets?flightId=%d'>%s</a>
-                    </li>
-                    """.formatted(flightDto.getId(), flightDto.getDescription()));
-        });
-        printWriter.write("</ul>");
 
     }
 }
